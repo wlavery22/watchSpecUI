@@ -3,9 +3,10 @@ import Card from '../Card/Card';
 import { useEffect , useState} from 'react';
 import PropTypes from 'prop-types';
 
-export default function WatchBox( {  } ){
+export default function WatchBox( { watches } ){
 
 	const watchesCards = watches.map(watch => {
+
 		return (
 			<Card 
 				id={watch.id}
