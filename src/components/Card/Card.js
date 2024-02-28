@@ -4,13 +4,13 @@ const Card = ({ name, type, id, maker, cost, complications, features, size  }) =
 
   return (
     <div className='card'>
-      <p>{name}</p>
-      <p>{type}</p>
-      <p>{maker}</p>
-      <p>{cost}</p>
-      <p>{complications}</p>
-      <p>{features}</p>
-      <p>{size}</p>
+      <p>Name: {name}</p>
+      <p>Type: {type}</p>
+      <p>Maker: {maker}</p>
+      <p>Cost: {cost}</p>
+      <p>Complications: {complications}</p>
+      <p>Features: {features}</p>
+      <p>Size: {size}</p>
     </div>
   )
 }
