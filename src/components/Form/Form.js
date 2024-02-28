@@ -13,7 +13,6 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updateName(name)
-    fetchByName()
 
     clearInput();
     navigate('/results');
@@ -23,7 +22,6 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updatePrice(price)
-    fetchByPrice()
 
     clearInput();
     navigate('/results');
@@ -33,7 +31,6 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updateType(type)
-    fetchByType()
 
     clearInput();
     navigate('/results');

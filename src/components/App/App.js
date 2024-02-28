@@ -44,7 +44,7 @@ export default function App() {
   return (
     <div className="App">
       <header >
-				<img src='src/cover.png' alt='Watch Collector Logo'/>
+				<img src={logo} alt="Logo" />
       </header>
 			<main>
 				<Routes>
@@ -60,11 +60,8 @@ export default function App() {
 				</Routes>
 			</main>
     </div>
-
   );
 }
 
 // you need to make sure all files have the import statements they need, and the props they need, in the return statement and in the arguments of the function/component
-
-
 
