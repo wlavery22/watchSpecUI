@@ -95,7 +95,7 @@ export default function App() {
               {!watches.length && <h2>No watches yet -- find some!</h2>}
             </>
           }/>
-          <Route path='/results' element={<ResultsPage key={resultsPageKey} watchByName={watchByName} watchesByType={watchesByType} watchesByPrice={watchesByPrice} />} />
+          <Route path='/results' element={<ResultsPage key={resultsPageKey} watchByName={watchByName} setWatchByName={setWatchByName} watchesByType={watchesByType} setWatchesByType={setWatchesByType} watchesByPrice={watchesByPrice} setWatchesByPrice={setWatchesByPrice} />} />
 					<Route path='*' element={<ErrorPage/>}/>
 				</Routes>
 			</main>
@@ -104,4 +104,4 @@ export default function App() {
 }
 
 // you need to make sure all files have the import statements they need, and the props they need, in the return statement and in the arguments of the function/component
-
+// is there a way to clear state in ResultsPage at the beginning of findByName or setWatchByName?

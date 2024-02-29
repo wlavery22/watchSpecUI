@@ -12,6 +12,11 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 	function submitName(event) {
 		event.preventDefault();
 
+    if (!validNumberRegex.test(salary)) {
+			alert('Please enter search terms in the field before clicking "SUBMIT"')
+			return;
+		}
+
     updateName(name)
     // setResultsPageKey(prevKey => prevKey + 1);
 

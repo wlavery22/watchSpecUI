@@ -1,9 +1,27 @@
 import './ResultsPage.css'
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 
 
-export default function ResultsPage({ watchByName, watchesByType, watchesByPrice, resultsPageKey }) {
-  
+export default function ResultsPage({ watchByName, setWatchByName, watchesByType, setWatchesByType, watchesByPrice, setWatchesByPrice, resultsPageKey }) {
+  // const [watchByName, setWatchByName] = useState('');
+  // const [watchesByType, setWatchesByType] = useState([]);
+  // const [watchesByPrice, setWatchesByPrice] = useState([]);
+  // const [resultsPageKey, setResultsPageKey] = useState(0);
+
+  // useEffect(() => {
+  //   setWatchByName('');
+  //   setWatchesByType([]);
+  //   setWatchesByPrice([]);
+  //   // setResultsPageKey(0);
+  //  }, [resultsPageKey]); 
+
+  function clearResults() {
+    setWatchByName('');
+    setWatchesByType([]);
+    setWatchesByPrice([]);
+	}
+   
 	return (
 		<div className="ResultsPage">
 			<h1 className='header'>Watches That Meet Your Criteria:</h1>
@@ -35,9 +53,14 @@ export default function ResultsPage({ watchByName, watchesByType, watchesByPrice
            ))}
          </div>
        )}
-			<Link to={`/`} className='homePageLink'>
+      <Link to={`/`} className='homePageLink'>
+        <button className='homePageButton' onClick={clearResults}>
+          <h3>Click here to head back home!</h3>
+        </button>
+      </Link>
+			{/* <Link to={`/`} className='homePageLink'>
 				<h3>Click here to head back home!</h3>
-			</Link>
+			</Link> */}
 		</div>
 	)
 }
