@@ -1,0 +1,21 @@
+.submitUserType:hover {
+	transition: 0.3s;
+	scale: 1.2;
+}
+
+.submitUserName:hover {
+	transition: 0.3s;
+	scale: 1.2;
+}
+
+.submitUserPrice:hover {
+	transition: 0.3s;
+	scale: 1.2;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+ 
