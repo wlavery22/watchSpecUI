@@ -8,41 +8,43 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
   const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
 	const [type, setType] = useState('');
+  const [nameError, setNameError] = useState('');
+  const [priceError, setPriceError] = useState('');
+  const [typeError, setTypeError] = useState('');
 
-	function submitName(event) {
-		event.preventDefault();
 
-    if (!validNumberRegex.test(salary)) {
-			alert('Please enter search terms in the field before clicking "SUBMIT"')
-			return;
-		}
-
-    updateName(name)
-    // setResultsPageKey(prevKey => prevKey + 1);
-
+  function submitName(event) {
+    event.preventDefault();
+    if (!name) {
+       setNameError('Please enter a name.');
+       return;
+    }
+    updateName(name);
     clearInput();
     navigate('/results');
-	}
+  }
 
-  function submitPrice(event) {
-		event.preventDefault();
-
-    updatePrice(price)
-    // setResultsPageKey(prevKey => prevKey + 1);
-
+   function submitPrice(event) {
+    event.preventDefault();
+    if (!price) {
+       setPriceError('Please enter a price.');
+       return;
+    }
+    updatePrice(price);
     clearInput();
     navigate('/results');
-	}
+  }
 
-  function submitType(event) {
-		event.preventDefault();
-
-    updateType(type)
-    // setResultsPageKey(prevKey => prevKey + 1);
-
+   function submitType(event) {
+    event.preventDefault();
+    if (!type) {
+       setTypeError('Please enter a type.');
+       return;
+    }
+    updateType(type);
     clearInput();
     navigate('/results');
-	}
+  }
 
 	function clearInput() {
     setName('');
@@ -53,31 +55,46 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 	return (
 		<div className='form-container'>
 			<p>Search Watches by Name, Price, OR Type</p>
+
 			<form className='main-form'>
 				<input
           type='text'
 					placeholder='Name'
 					name='name'
 					value={name}
-					onChange={event => setName(event.target.value)}
+					onChange={event => {
+            setName(event.target.value);
+            setNameError('');
+          }}
         />
         <button className="submitUserName" onClick={submitName}>SUBMIT</button>
+        {nameError && <p className="error-message">{nameError}</p>}
+
 				<input
           type='number'
 					placeholder='Price'
 					name='price'
 					value={price}
-					onChange={event => setPrice(event.target.value)}
+					onChange={event => {
+            setPrice(event.target.value);
+            setPriceError('');
+          }}
         />
         <button className="submitUserPrice" onClick={submitPrice}>SUBMIT</button>
+        {priceError && <p className="error-message">{priceError}</p>}
+
 				<input
           type='text'
 					placeholder='Type'
 					name='type'
 					value={type}
-					onChange={event => setType(event.target.value)}
+					onChange={event => {
+            setType(event.target.value);
+            setTypeError('');
+          }}
         />
 				<button className="submitUserType" onClick={submitType}>SUBMIT</button>
+        {typeError && <p className="error-message">{typeError}</p>}
 			</form>
 		</div>
 	)
