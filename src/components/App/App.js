@@ -16,10 +16,10 @@ export default function App() {
   const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
 	const [type, setType] = useState('');
-
   const [watchByName, setWatchByName] = useState('');
   const [watchesByType, setWatchesByType] = useState([]);
   const [watchesByPrice, setWatchesByPrice] = useState([]);
+  const [resultsPageKey, setResultsPageKey] = useState(0);
 
 
   useEffect(() => {
@@ -38,19 +38,26 @@ export default function App() {
 		setName(name)
     console.log(name)
     findByName(name)
+    setResultsPageKey(prevKey => prevKey + 1);
 	}
 
 	function updatePrice(price) {
 		setPrice(price)
     console.log(price)
     filterByPrice(price)
+    setResultsPageKey(prevKey => prevKey + 1);
 	}
 
 	function updateType(type) {
 		setType(type)
     console.log(type)
     filterByType(type)
+    setResultsPageKey(prevKey => prevKey + 1);
 	}
+
+  function toDollars(number) {
+    return `{$}number.toString()`
+  };
 
   function findByName(name) {
     const usersWatchByName = watches.find(watch => {
@@ -62,7 +69,7 @@ export default function App() {
 
   function filterByPrice(price) {
     const userswatchesByPrice = watches.filter(watch => {
-      return watch.price === price;
+      return watch.price === toDollars(price);
     })
     return setWatchesByPrice(userswatchesByPrice);
   }
@@ -88,8 +95,7 @@ export default function App() {
               {!watches.length && <h2>No watches yet -- find some!</h2>}
             </>
           }/>
-          <Route path='/results' element={<ResultsPage watchByName={watchByName} watchesByType={watchesByType} watchesByPrice={watchesByPrice} />} />
-
+          <Route path='/results' element={<ResultsPage key={resultsPageKey} watchByName={watchByName} watchesByType={watchesByType} watchesByPrice={watchesByPrice} />} />
 					<Route path='*' element={<ErrorPage/>}/>
 				</Routes>
 			</main>

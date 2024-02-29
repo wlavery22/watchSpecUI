@@ -13,6 +13,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updateName(name)
+    // setResultsPageKey(prevKey => prevKey + 1);
 
     clearInput();
     navigate('/results');
@@ -22,6 +23,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updatePrice(price)
+    // setResultsPageKey(prevKey => prevKey + 1);
 
     clearInput();
     navigate('/results');
@@ -31,6 +33,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		event.preventDefault();
 
     updateType(type)
+    // setResultsPageKey(prevKey => prevKey + 1);
 
     clearInput();
     navigate('/results');
