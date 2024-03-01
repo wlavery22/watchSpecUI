@@ -1,0 +1,8 @@
+.all-watches-container{
+	padding:40px;
+  display: grid;
+  background-color: rgb(26, 11, 74);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 50px 30px;
+  color: white;
+}
