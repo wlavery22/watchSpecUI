@@ -54,7 +54,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 
 	return (
 		<div className='form-container'>
-			<p>Search Watches by Name, Price, OR Type</p>
+			<p className='form-container-title'>Search Watches by Name, Price, OR Type</p>
 
 			<form className='main-form'>
 				<input

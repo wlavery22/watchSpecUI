@@ -1,4 +1,13 @@
-.homePageLink:hover {
+.home-page-link:hover {
 	transition: 0.3s;
 	scale: 1.2;
+}
+
+.all-results-container {
+  background-color: rgb(26, 11, 74);
+  color: whitesmoke
+}
+.home-page-button:hover {
+  background-color: rgb(26, 11, 74);
+  color: white;
 }
