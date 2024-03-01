@@ -20,7 +20,7 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
            <p>Name: {watchByName.name}</p>
            <p>Type: {watchByName.type}</p>
            <p>Maker: {watchByName.maker}</p>
-           <p>Cost: {watchByName.cost}</p>
+           <p>Cost: ${watchByName.cost}</p>
            <p>Complications: {watchByName.complications}</p>
            <p>Features: {watchByName.features}</p>
            <p>Size: {watchByName.size}</p>
