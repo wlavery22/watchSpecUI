@@ -18,4 +18,11 @@
   font-size: 0.8em;
   margin-top: 5px;
 }
+
+.form-container {
+  padding-bottom: 20px;
+}
  
+.form-container-title {
+  margin: 12px
+}
