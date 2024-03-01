@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Form({ navigate, updateName, updatePrice, updateType }) {
   const [name, setName] = useState('');
-	const [price, setPrice] = useState(0);
+	const [price, setPrice] = useState('');
 	const [type, setType] = useState('');
   const [nameError, setNameError] = useState('');
   const [priceError, setPriceError] = useState('');
   const [typeError, setTypeError] = useState('');
 
-  
+
   function submitName(event) {
     event.preventDefault();
     if (!name) {
@@ -76,7 +76,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 					name='price'
 					value={price}
 					onChange={event => {
-            setPrice(event.target.value);
+            setPrice(Number(event.target.value));
             setPriceError('');
           }}
         />

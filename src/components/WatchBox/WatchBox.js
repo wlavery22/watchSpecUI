@@ -28,7 +28,7 @@ export default function WatchBox( { watches } ){
 		</div>
 	)
 }
-
+// `{$}number.toString()`
 // WatchBox.propTypes = {
 //   watches: PropTypes.array.isRequired,
 //   updateWatchId: PropTypes.func.isRequired,

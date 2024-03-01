@@ -7,7 +7,7 @@ const Card = ({ name, type, id, maker, cost, complications, features, size  }) =
       <p>Name: {name}</p>
       <p>Type: {type}</p>
       <p>Maker: {maker}</p>
-      <p>Cost: {cost}</p>
+      <p>Cost: ${cost}</p>
       <p>Complications: {complications}</p>
       <p>Features: {features}</p>
       <p>Size: {size}</p>

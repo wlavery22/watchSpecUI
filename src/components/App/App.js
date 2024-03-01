@@ -20,7 +20,7 @@ export default function App() {
   const [watchesByType, setWatchesByType] = useState([]);
   const [watchesByPrice, setWatchesByPrice] = useState([]);
 
-  
+
   useEffect(() => {
     getAllWatches()
       .then(data => setWatches(data.watches))
@@ -48,21 +48,16 @@ export default function App() {
     filterByType(type)
 	}
 
-  function toDollars(number) {
-    return `{$}number.toString()`
-  };
-
   function findByName(name) {
     const usersWatchByName = watches.find(watch => {
        return watch.name === name;
     });
     return setWatchByName(usersWatchByName);
    }
-   console.log(watchByName)
 
   function filterByPrice(price) {
     const userswatchesByPrice = watches.filter(watch => {
-      return watch.price === toDollars(price);
+      return watch.cost === Number(price);
     })
     return setWatchesByPrice(userswatchesByPrice);
   }

@@ -9,8 +9,6 @@ export default function getAllWatches() {
       return response.json()
       }
   })
-  // .then(data => setWatches(data.watches))
-  // .catch(error => handleError(error.message))
 }
 
 
