@@ -7,7 +7,7 @@ const Card = ({ name, type, id, maker, cost, complications, features, size  }) =
       <p>Name: {name}</p>
       <p>Type: {type}</p>
       <p>Maker: {maker}</p>
-      <p>Cost: {cost}</p>
+      <p>Cost: ${cost}</p>
       <p>Complications: {complications}</p>
       <p>Features: {features}</p>
       <p>Size: {size}</p>
@@ -16,7 +16,3 @@ const Card = ({ name, type, id, maker, cost, complications, features, size  }) =
 }
 
 export default Card;
-
-//receiving props here from WatchBox.js, from the '.all-watches-container' component 
-
-// name, type, id, maker, cost, complications, features, size

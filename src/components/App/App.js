@@ -19,7 +19,6 @@ export default function App() {
   const [watchByName, setWatchByName] = useState('');
   const [watchesByType, setWatchesByType] = useState([]);
   const [watchesByPrice, setWatchesByPrice] = useState([]);
-  const [resultsPageKey, setResultsPageKey] = useState(0);
 
 
   useEffect(() => {
@@ -36,28 +35,18 @@ export default function App() {
   
   function updateName(name) {
 		setName(name)
-    console.log(name)
     findByName(name)
-    setResultsPageKey(prevKey => prevKey + 1);
 	}
 
 	function updatePrice(price) {
 		setPrice(price)
-    console.log(price)
     filterByPrice(price)
-    setResultsPageKey(prevKey => prevKey + 1);
 	}
 
 	function updateType(type) {
 		setType(type)
-    console.log(type)
     filterByType(type)
-    setResultsPageKey(prevKey => prevKey + 1);
 	}
-
-  function toDollars(number) {
-    return `{$}number.toString()`
-  };
 
   function findByName(name) {
     const usersWatchByName = watches.find(watch => {
@@ -65,11 +54,10 @@ export default function App() {
     });
     return setWatchByName(usersWatchByName);
    }
-   console.log(watchByName)
 
   function filterByPrice(price) {
     const userswatchesByPrice = watches.filter(watch => {
-      return watch.price === toDollars(price);
+      return watch.cost === Number(price);
     })
     return setWatchesByPrice(userswatchesByPrice);
   }
@@ -95,13 +83,10 @@ export default function App() {
               {!watches.length && <h2>No watches yet -- find some!</h2>}
             </>
           }/>
-          <Route path='/results' element={<ResultsPage key={resultsPageKey} watchByName={watchByName} setWatchByName={setWatchByName} watchesByType={watchesByType} setWatchesByType={setWatchesByType} watchesByPrice={watchesByPrice} setWatchesByPrice={setWatchesByPrice} />} />
+          <Route path='/results' element={<ResultsPage watchByName={watchByName} setWatchByName={setWatchByName} watchesByType={watchesByType} setWatchesByType={setWatchesByType} watchesByPrice={watchesByPrice} setWatchesByPrice={setWatchesByPrice} />} />
 					<Route path='*' element={<ErrorPage/>}/>
 				</Routes>
 			</main>
     </div>
   );
 }
-
-// you need to make sure all files have the import statements they need, and the props they need, in the return statement and in the arguments of the function/component
-// is there a way to clear state in ResultsPage at the beginning of findByName or setWatchByName?
