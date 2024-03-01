@@ -16,7 +16,3 @@ const Card = ({ name, type, id, maker, cost, complications, features, size  }) =
 }
 
 export default Card;
-
-//receiving props here from WatchBox.js, from the '.all-watches-container' component 
-
-// name, type, id, maker, cost, complications, features, size

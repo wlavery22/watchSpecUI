@@ -21,7 +21,7 @@ export default function WatchBox( { watches } ){
 			/>
 		)
 	})
-  // name, type, id, maker, cost, complications, features, size
+
 	return (
 		<div className='all-watches-container'>
 			{watchesCards}

@@ -12,7 +12,7 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
   const [priceError, setPriceError] = useState('');
   const [typeError, setTypeError] = useState('');
 
-
+  
   function submitName(event) {
     event.preventDefault();
     if (!name) {
