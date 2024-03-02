@@ -19,18 +19,31 @@ export default function App() {
   const [watchByName, setWatchByName] = useState('');
   const [watchesByType, setWatchesByType] = useState([]);
   const [watchesByPrice, setWatchesByPrice] = useState([]);
-
+  const [serverError, setServerError] = useState(false);
 
   useEffect(() => {
     getAllWatches()
       .then(data => setWatches(data.watches))
-      .catch(error => setError(true))
-  },[])
+      .catch(error => {
+        if (error.message.includes('Server Error')) {
+          setServerError(true); 
+        } else {
+          setError(true);
+        }
+      });
+  }, []);
+
+  if (serverError) {
+    return (
+      <div>
+        <h1>Server Error</h1>
+        <p className="server-error-message">We're having trouble getting data. Please try again later.</p>
+      </div>
+    );
+  }
 
   if (error) {
-    return (
-      <h1>ERROR</h1>
-    )
+    return <h1>ERROR</h1>;
   }
   
   function updateName(name) {

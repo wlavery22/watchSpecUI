@@ -10,15 +10,22 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
     setWatchesByType([]);
     setWatchesByPrice([]);
 	}
-   
+
+  const noResults = !watchByName && watchesByType.length === 0 && watchesByPrice.length === 0;
+
 	return (
 		<div className="results-page">
 			<h1 className='header'>Watches That Meet Your Criteria:</h1>
       <div className='all-results-container'>
+        {noResults && (
+          <div className="no-results">
+            <p>There are no watches that meet your criteria, please try again.</p>
+          </div>
+        )}
         {watchByName && (
-          <div>
+          <div className="watch-by-name">
             <h2>Watch by Name:</h2>
-            <p>Name: {watchByName.name}</p>
+            <p>{watchByName.name}</p>
             <p>Type: {watchByName.type}</p>
             <p>Maker: {watchByName.maker}</p>
             <p>Cost: ${watchByName.cost}</p>
@@ -28,7 +35,7 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
           </div>
         )}
         {watchesByType.length > 0 && (
-          <div>
+          <div className="watches-by-type">
             <h2>Watches by Type:</h2>
             {watchesByType.map(watch => (
               <p key={watch.id}>{watch.name}</p>
@@ -36,7 +43,7 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
           </div>
         )}
         {watchesByPrice.length > 0 && (
-          <div>
+          <div className="watches-by-price">
             <h2>Watches by Price:</h2>
             {watchesByPrice.map(watch => (
               <p key={watch.id}>{watch.name}</p>
@@ -52,6 +59,3 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
 		</div>
 	)
 }
-
-
- 
