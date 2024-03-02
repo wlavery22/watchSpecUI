@@ -1,0 +1,13 @@
+{
+  "watches": [
+    { "id": "a1", "name": "Alpinist", "type": "field watch", "maker": "Seiko", "cost": 700, "complications": "date", "features": "triangular indices", "size": "39mm" },
+    { "id": "b2", "name": "Seiko 5 GMT", "type": "sports watch", "maker": "Seiko", "cost": 400, "complications": "GMT", "features": "24-hour bezel", "size": "39mm" },
+    { "id": "c3", "name": "Seiko Monster", "type": "dive watch", "maker": "Seiko", "cost": 400, "complications": "day date", "features": "extra-large indices and hands", "size": "42mm" },
+    { "id": "d4", "name": "Seiko Turtle", "type": "dive watch", "maker": "Seiko", "cost": 400, "complications": "day date", "features": "cushion case", "size": "45mm" },
+    { "id": "e5", "name": "Cocktail Time", "type": "dress watch", "maker": "Seiko", "cost": 400, "complications": "date", "features": "sun-ray dial", "size": "40mm" },
+    { "id": "f6", "name": "Dress KX", "type": "casual watch", "maker": "Seiko", "cost": 300, "complications": "date", "features": "dive-style hands and indices", "size": "40mm" },
+    { "id": "g7", "name": "Premier B09", "type": "pilot's watch", "maker": "Brietling", "cost": 9000, "complications": "chronograph", "features": "bi-compax dial", "size": "40mm" }
+  ]
+}
+
+
