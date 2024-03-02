@@ -76,31 +76,37 @@ describe('What user sees on home page', () => {
   });
 
   it('should display an error message when the form field is submitted empty, and when the search does not return any watches', () => {
-      cy.get('.submitUserName').click();
-      cy.get('.error-message').should('contain', 'Please enter a name.');
-      cy.get('.submitUserPrice').click();
-      cy.get('.error-message').should('contain', 'Please enter a price.');
-      cy.get('.submitUserType').click();
-      cy.get('.error-message').should('contain', 'Please enter a type.');
-      cy.get('input[name="name"]').type('NoWatchName');
-      cy.get('.submitUserName').click();
-      cy.url().should('eq', 'http://localhost:3001/results');
-      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
-      cy.visit('http://localhost:3001');
-      cy.get('input[name="price"]').type('20000');
-      cy.get('.submitUserPrice').click();
-      cy.url().should('eq', 'http://localhost:3001/results');
-      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
-      cy.visit('http://localhost:3001');
-      cy.get('input[name="type"]').type('NoWatchType');
-      cy.get('.submitUserType').click();
-      cy.url().should('eq', 'http://localhost:3001/results');
-      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+    cy.get('.submitUserName').click();
+    cy.get('.error-message').should('contain', 'Please enter a name.');
+    cy.get('.submitUserPrice').click();
+    cy.get('.error-message').should('contain', 'Please enter a price.');
+    cy.get('.submitUserType').click();
+    cy.get('.error-message').should('contain', 'Please enter a type.');
+    cy.get('input[name="name"]').type('NoWatchName');
+    cy.get('.submitUserName').click();
+    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+    cy.visit('http://localhost:3001');
+    cy.get('input[name="price"]').type('20000');
+    cy.get('.submitUserPrice').click();
+    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+    cy.visit('http://localhost:3001');
+    cy.get('input[name="type"]').type('NoWatchType');
+    cy.get('.submitUserType').click();
+    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+    });
+  it('should display an error message when a 500 error occurs', () => {
+    cy.intercept('GET', 'http://localhost:3000/api/v1/watches', {
+      statusCode: 500,
+      body: 'Internal Server Error'
+    }).as('getAllWatches');
+      cy.wait('@getAllWatches');
+      cy.get('.server-error-message').should('contain', 'We\'re having trouble getting data. Please try again later.');
     });
   });
 
-    // cy.wait(500); 
-    // cy.debug();
 
 
 
