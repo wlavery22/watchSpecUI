@@ -1,6 +1,7 @@
 import './ResultsPage.css'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 
 export default function ResultsPage({ watchByName, setWatchByName, watchesByType, setWatchesByType, watchesByPrice, setWatchesByPrice }) {
@@ -59,3 +60,21 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
 		</div>
 	)
 }
+
+ResultsPage.propTypes = {
+  watchByName: PropTypes.shape({
+    name: PropTypes.string,
+    type: PropTypes.string,
+    maker: PropTypes.string,
+    cost: PropTypes.number,
+    complications: PropTypes.string,
+    features: PropTypes.string,
+    size: PropTypes.string,
+  }),
+  setWatchByName: PropTypes.func.isRequired,
+  watchesByType: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setWatchesByType: PropTypes.func.isRequired,
+  watchesByPrice: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setWatchesByPrice: PropTypes.func.isRequired
+};
+ 

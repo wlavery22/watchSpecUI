@@ -2,6 +2,7 @@ import './Form.css'
 import { getWatches } from '../../apiCalls'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 
 export default function Form({ navigate, updateName, updatePrice, updateType }) {
@@ -11,7 +12,6 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
   const [nameError, setNameError] = useState('');
   const [priceError, setPriceError] = useState('');
   const [typeError, setTypeError] = useState('');
-
 
   function submitName(event) {
     event.preventDefault();
@@ -99,3 +99,10 @@ export default function Form({ navigate, updateName, updatePrice, updateType }) 
 		</div>
 	)
 }
+
+Form.propTypes = {
+  navigate: PropTypes.func.isRequired,
+  updateName: PropTypes.func.isRequired,
+  updatePrice: PropTypes.func.isRequired,
+  updateType: PropTypes.func.isRequired,
+ };
