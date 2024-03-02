@@ -10,11 +10,18 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
     setWatchesByType([]);
     setWatchesByPrice([]);
 	}
-   
+
+  const noResults = !watchByName && watchesByType.length === 0 && watchesByPrice.length === 0;
+
 	return (
 		<div className="results-page">
 			<h1 className='header'>Watches That Meet Your Criteria:</h1>
       <div className='all-results-container'>
+        {noResults && (
+          <div className="no-results">
+            <p>There are no watches that meet your criteria, please try again.</p>
+          </div>
+        )}
         {watchByName && (
           <div className="watch-by-name">
             <h2>Watch by Name:</h2>
@@ -52,6 +59,3 @@ export default function ResultsPage({ watchByName, setWatchByName, watchesByType
 		</div>
 	)
 }
-
-
- 

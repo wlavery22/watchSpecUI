@@ -71,11 +71,38 @@ describe('What user sees on home page', () => {
       cy.contains('Watches by Type:');
       cy.contains('Alpinist');
     });
-    // cy.get('input[name="type"]').as('typeInput').clear();
+    cy.get('.home-page-button').click()
+    cy.url().should('eq', 'http://localhost:3001/');
+  });
+
+  it('should display an error message when the form field is submitted empty, and when the search does not return any watches', () => {
+      cy.get('.submitUserName').click();
+      cy.get('.error-message').should('contain', 'Please enter a name.');
+      cy.get('.submitUserPrice').click();
+      cy.get('.error-message').should('contain', 'Please enter a price.');
+      cy.get('.submitUserType').click();
+      cy.get('.error-message').should('contain', 'Please enter a type.');
+      cy.get('input[name="name"]').type('NoWatchName');
+      cy.get('.submitUserName').click();
+      cy.url().should('eq', 'http://localhost:3001/results');
+      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+      cy.visit('http://localhost:3001');
+      cy.get('input[name="price"]').type('20000');
+      cy.get('.submitUserPrice').click();
+      cy.url().should('eq', 'http://localhost:3001/results');
+      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+      cy.visit('http://localhost:3001');
+      cy.get('input[name="type"]').type('NoWatchType');
+      cy.get('.submitUserType').click();
+      cy.url().should('eq', 'http://localhost:3001/results');
+      cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
+    });
+  });
+
     // cy.wait(500); 
     // cy.debug();
-  });
-});
+
+
 
 
 
