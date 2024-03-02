@@ -28,10 +28,16 @@ export default function WatchBox( { watches } ){
 		</div>
 	)
 }
-// `{$}number.toString()`
-// WatchBox.propTypes = {
-//   watches: PropTypes.array.isRequired,
-//   updateWatchId: PropTypes.func.isRequired,
-//   updateWatchInfo: PropTypes.func.isRequired,
-//   handleError: PropTypes.func.isRequired,
-// }
+
+WatchBox.propTypes = {
+  watches: PropTypes.arrayOf(PropTypes.shape({
+     id: PropTypes.number.isRequired,
+     name: PropTypes.string.isRequired,
+     type: PropTypes.string.isRequired,
+     maker: PropTypes.string.isRequired,
+     cost: PropTypes.number.isRequired,
+     complications: PropTypes.string.isRequired,
+     features: PropTypes.string.isRequired,
+     size: PropTypes.string.isRequired,
+  })).isRequired,
+ };
