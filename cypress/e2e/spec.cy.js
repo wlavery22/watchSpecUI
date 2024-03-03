@@ -1,10 +1,10 @@
 describe('What user sees on home page', () => {
 	beforeEach(() => {
-		cy.visit('http://localhost:3001');
+		cy.visit('https://watch-spec-ui.vercel.app/');
 	});
-
+  
 	it('Should show the name of the app, a form, a collection of watches, should hold the value in the form input when data is entered, navigate to /results after button click, and display search results on /results page', () => {
-		cy.intercept('GET', 'http://localhost:3000/api/v1/watches', {
+		cy.intercept('GET', 'http://localhost:20223/api/v1/watches', {
 			statusCode: 200,
 			fixture: 'example.json'
 		})
@@ -40,7 +40,7 @@ describe('What user sees on home page', () => {
     cy.get('input[name="name"]').as('nameInput').focus().clear().type('Alpinist');
     cy.get('@nameInput').should('have.value', 'Alpinist');
     cy.get('.submitUserName').click();
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.all-results-container .watch-by-name').within(() => {
       cy.contains('Watch by Name:');
       cy.contains('Alpinist');
@@ -51,28 +51,28 @@ describe('What user sees on home page', () => {
       cy.contains('Features: triangular indices');
       cy.contains('Size: 39mm');
     });
-    cy.visit('http://localhost:3001');
+    cy.visit('https://watch-spec-ui.vercel.app/');
     cy.get('input[name="name"]').as('nameInput').clear();
     cy.get('input[name="price"]').as('priceInput').focus().clear().type('700');
     cy.get('@priceInput').should('have.value', '700');
     cy.get('.submitUserPrice').click()
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.all-results-container .watches-by-price').within(() => {
       cy.contains('Watches by Price:');
       cy.contains('Alpinist');
     });
-    cy.visit('http://localhost:3001');
+    cy.visit('https://watch-spec-ui.vercel.app/');
     cy.get('input[name="price"]').as('priceInput').clear();
     cy.get('input[name="type"]').as('typeInput').focus().clear().type('field watch');
     cy.get('@typeInput').should('have.value', 'field watch');
     cy.get('.submitUserType').click()
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.all-results-container .watches-by-type').within(() => {
       cy.contains('Watches by Type:');
       cy.contains('Alpinist');
     });
     cy.get('.home-page-button').click()
-    cy.url().should('eq', 'http://localhost:3001/');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/');
   });
 
   it('should display an error message when the form field is submitted empty, and when the search does not return any watches', () => {
@@ -84,21 +84,21 @@ describe('What user sees on home page', () => {
     cy.get('.error-message').should('contain', 'Please enter a type.');
     cy.get('input[name="name"]').type('NoWatchName');
     cy.get('.submitUserName').click();
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
-    cy.visit('http://localhost:3001');
+    cy.visit('https://watch-spec-ui.vercel.app/');
     cy.get('input[name="price"]').type('20000');
     cy.get('.submitUserPrice').click();
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
-    cy.visit('http://localhost:3001');
+    cy.visit('https://watch-spec-ui.vercel.app/');
     cy.get('input[name="type"]').type('NoWatchType');
     cy.get('.submitUserType').click();
-    cy.url().should('eq', 'http://localhost:3001/results');
+    cy.url().should('eq', 'https://watch-spec-ui.vercel.app/results');
     cy.get('.no-results').should('contain', 'There are no watches that meet your criteria, please try again.');
     });
   it('should display an error message when a 500 error occurs', () => {
-    cy.intercept('GET', 'http://localhost:3000/api/v1/watches', {
+    cy.intercept('GET', 'http://localhost:20223/api/v1/watches', {
       statusCode: 500,
       body: 'Internal Server Error'
     }).as('getAllWatches');

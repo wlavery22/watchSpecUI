@@ -23,14 +23,14 @@ export default function App() {
 
   useEffect(() => {
     getAllWatches()
-      .then(data => setWatches(data.watches))
-      .catch(error => {
-        if (error.message.includes('Server Error')) {
-          setServerError(true); 
-        } else {
-          setError(true);
-        }
-      });
+    .then(data => setWatches(data.watches))
+    .catch(error => {
+      if (error.message.includes('Server Error')) {
+        setServerError(true); 
+      } else {
+        setError(true);
+      }
+    });
   }, []);
 
   if (serverError) {
