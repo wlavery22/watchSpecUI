@@ -1,6 +1,6 @@
 
 export default function getAllWatches() {
-  return fetch('http://localhost:20223/api/v1/watches')
+  return fetch('https://cryptic-thicket-07538-399494341bbd.herokuapp.com/api/v1/watches')
   .then(response => {
     if (!response.ok) {
       if (response.status === 500) {
@@ -14,4 +14,4 @@ export default function getAllWatches() {
   });
 }
  
-// http://localhost:20223
+
