@@ -72,9 +72,9 @@ ResultsPage.propTypes = {
     size: PropTypes.string,
   }),
   setWatchByName: PropTypes.func.isRequired,
-  watchesByType: PropTypes.arrayOf(PropTypes.string).isRequired,
+  watchesByType: PropTypes.arrayOf(PropTypes.object).isRequired,
   setWatchesByType: PropTypes.func.isRequired,
-  watchesByPrice: PropTypes.arrayOf(PropTypes.string).isRequired,
+  watchesByPrice: PropTypes.arrayOf(PropTypes.object).isRequired,
   setWatchesByPrice: PropTypes.func.isRequired
 };
  

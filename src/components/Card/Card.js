@@ -21,7 +21,7 @@ export default Card;
 Card.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   maker: PropTypes.string.isRequired,
   cost: PropTypes.number.isRequired,
   complications: PropTypes.string.isRequired,
