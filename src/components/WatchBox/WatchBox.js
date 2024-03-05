@@ -31,7 +31,7 @@ export default function WatchBox( { watches } ){
 
 WatchBox.propTypes = {
   watches: PropTypes.arrayOf(PropTypes.shape({
-     id: PropTypes.number.isRequired,
+     id: PropTypes.string.isRequired,
      name: PropTypes.string.isRequired,
      type: PropTypes.string.isRequired,
      maker: PropTypes.string.isRequired,

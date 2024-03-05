@@ -69,12 +69,21 @@ ResultsPage.propTypes = {
     cost: PropTypes.number,
     complications: PropTypes.string,
     features: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.string
   }),
   setWatchByName: PropTypes.func.isRequired,
   watchesByType: PropTypes.arrayOf(PropTypes.string).isRequired,
   setWatchesByType: PropTypes.func.isRequired,
   watchesByPrice: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // watchesByPrice: PropTypes.shape({
+  //   name: PropTypes.string,
+  //   type: PropTypes.string,
+  //   maker: PropTypes.string,
+  //   cost: PropTypes.number,
+  //   complications: PropTypes.string,
+  //   features: PropTypes.string,
+  //   size: PropTypes.string
+  // }),
   setWatchesByPrice: PropTypes.func.isRequired
 };
  
