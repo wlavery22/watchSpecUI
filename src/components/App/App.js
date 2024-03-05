@@ -16,7 +16,7 @@ export default function App() {
   const [name, setName] = useState('');
 	const [price, setPrice] = useState(0);
 	const [type, setType] = useState('');
-  const [watchByName, setWatchByName] = useState('');
+  const [watchByName, setWatchByName] = useState("");
   const [watchesByType, setWatchesByType] = useState([]);
   const [watchesByPrice, setWatchesByPrice] = useState([]);
   const [serverError, setServerError] = useState(false);
