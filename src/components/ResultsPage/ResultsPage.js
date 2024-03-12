@@ -74,9 +74,6 @@ ResultsPage.propTypes = {
   setWatchByName: PropTypes.func.isRequired,
   watchesByType: PropTypes.arrayOf(PropTypes.object).isRequired,
   setWatchesByType: PropTypes.func.isRequired,
-<<<<<<< HEAD
-  watchesByPrice: PropTypes.arrayOf(PropTypes.object).isRequired,
-=======
   watchesByPrice: PropTypes.arrayOf(PropTypes.string).isRequired,
   // watchesByPrice: PropTypes.shape({
   //   name: PropTypes.string,
@@ -87,7 +84,6 @@ ResultsPage.propTypes = {
   //   features: PropTypes.string,
   //   size: PropTypes.string
   // }),
->>>>>>> ebc4b615c4e49f9bd88dd5430ac20252c4cdcce2
   setWatchesByPrice: PropTypes.func.isRequired
 };
  
