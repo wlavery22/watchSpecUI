@@ -1,13 +1,13 @@
 describe('What user sees on home page', () => {
 	beforeEach(() => {
+    cy.intercept('GET', 'https://cryptic-thicket-07538-399494341bbd.herokuapp.com/api/v1/watches', {
+			statusCode: 200,
+			fixture: 'example.json'
+    })
 		cy.visit('http://localhost:3000');
 	});
   
 	it('Should show the name of the app, a form, a collection of watches, should hold the value in the form input when data is entered, navigate to /results after button click, and display search results on /results page', () => {
-		cy.intercept('GET', 'https://cryptic-thicket-07538-399494341bbd.herokuapp.com/api/v1/watches', {
-			statusCode: 200,
-			fixture: 'example.json'
-		})
 		cy.get('header').within(() => {
       cy.get('img').should('exist');
     });
